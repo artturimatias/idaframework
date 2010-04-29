@@ -32,12 +32,12 @@ By using symlinks one can update the code without deleting config-settings.
   * copy config.php to idadev_test/
 
 
-
+== config.php==
 Edit /idadev_test/config.php and define:
-- database name
-- database user
-- database password 
-- databasetype
+  * database name
+  * database user
+  * database password 
+  * databasetype (mysql/psql)
 
 Be careful when editing config.php, since it must be a valid php file!
 
@@ -55,10 +55,10 @@ TROUBLESHOOTING
 
 Q: I'm not able to connect to database!
 A: Make sure that you have:
- - database running
- - installed PHP module for your database (like php5-pgsql)
- - installed MDB2 with PEAR
- - installed MDB2#driver_for_your_db (like MDB2_Driver_pgsql) 
+  * database running
+  * installed PHP module for your database (like php5-pgsql)
+  * installed MDB2 with PEAR
+  * installed MDB2#driver_for_your_db (like MDB2_Driver_pgsql) 
 
 NOTE: There is also a command line test script in /idacore/server/. You can use it by saying:
 php cli_test.php
