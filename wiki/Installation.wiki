@@ -32,7 +32,7 @@ By using symlinks one can update the code without deleting config-settings.
   * copy config.php to idadev_test/
 
 
-== config.php==
+== Settings in config.php==
 Edit /idadev_test/config.php and define:
   * database name
   * database user
