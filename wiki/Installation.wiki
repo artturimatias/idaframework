@@ -19,17 +19,19 @@
     ** postgresql: createdb _your_databasename_
 
 == Installation from SVN ==
-By using symlinks one can update the code without deleting config-settings.
 
   * first checkout the code from svn:
-  http://code.google.com/p/idaframework/source/checkout
+    `svn checkout http://idaframework.googlecode.com/svn/trunk/ idaframework-read-only`
+
 
   * make a new directory in your server document root (for example idadev_test)
-  * symlink server-directory from /idaframerwork-read-only/idacore/ under idadev.
-
-/YOUR_SERVERROOT/idadev_test/server/
-
-  * copy config.php to idadev_test/
+  * copy /idaframerwork-read-only/idacore/server under idadev_test.
+  * copy /idaframerwork-read-only/idacore/css under idadev_test.
+  * copy following files to idadev_test/:
+    * config.php
+    * classes.rdfs
+    * properties.rdfs
+    * templates.xml
 
 
 == Settings in config.php==
@@ -44,7 +46,7 @@ Be careful when editing config.php, since it must be a valid php file!
 == Setup ==
 Now everything should be ready and setup can be launched:
 
-- Aim your browser to /idacore/server/init/
+- Aim your browser to /idadev_test/server/init/
 
 First page tests things and if everything seems to OK, then just proceed. In ideal case, you should end up to the introduction page.
 
