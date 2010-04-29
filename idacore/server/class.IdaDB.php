@@ -13,8 +13,13 @@ ob_start();
 // check if config.php is overridden
 $root = $_SERVER['DOCUMENT_ROOT'];
 $arr_path = explode("/", $_SERVER['PHP_SELF']);
+$phpfile = $arr_path[count($arr_path)-1];
 unset($arr_path[count($arr_path)-1]);
 unset($arr_path[count($arr_path)-1]);
+// if this is called from setup then go back one more directory
+if($phpfile != "xmlin.php")
+    unset($arr_path[count($arr_path)-1]);
+
 $path = implode($arr_path,"/");
 if(file_exists($root.$path.'/config.php')) {
     $config = $root.$path.'/config.php';

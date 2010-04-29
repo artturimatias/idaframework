@@ -12,14 +12,28 @@
     <div id="content">
     <h1>IDA-Framework test page</h1>
     
-    <?php
-	echo "<h2>Machine</h2>\n";
-	echo "<li>PHP: ".phpversion()."</li>";
-	echo "<li>OS: ".php_uname("s")." ".php_uname("m")."</li>";
+<?php
+    echo "<h2>Machine</h2>\n";
+    echo "<li>PHP: ".phpversion()."</li>";
+    echo "<li>OS: ".php_uname("s")." ".php_uname("m")."</li>";
+
+    // check if config.php is overridden
+    $root = $_SERVER['DOCUMENT_ROOT'];
+    $arr_path = explode("/", $_SERVER['PHP_SELF']);
+    // back from idacore/server/init/
+    unset($arr_path[count($arr_path)-1]);
+    unset($arr_path[count($arr_path)-1]);
+    unset($arr_path[count($arr_path)-1]);
+    $path = implode($arr_path,"/");
+    if(file_exists($root.$path.'/config.php')) {
+        $config = $root.$path.'/config.php';
+    } else {
+        $config = '../../config.php';
+    }
 
     include('MDB2.php');
-    include('../config.php');
-    
+    include($config);
+ 
     $settingError = 0;
 
 
