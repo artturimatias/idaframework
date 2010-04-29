@@ -1,0 +1,393 @@
+
+.ida_embed {
+
+
+width:20em;
+right: 0em;
+background-color:gray;
+padding:1em;
+z-index:2;
+
+}
+
+/*
+-----------------------------------------------------------------
+    IDA stuff
+----------------------------------------------------------------
+*/
+
+#xmldiv span {
+    font-weight:bold;
+}
+
+#xmldiv div {
+    margin-left:5px;
+}
+
+
+img {
+    cursor: default;
+}
+
+div.fname {
+    width:15em;
+    float:left;
+}
+
+#areaRight {
+    border-left: solid 1px #5F6800;
+    margin-left:26em;
+    padding-left:1em;
+
+}
+
+#treeLeft {
+    width:25em;
+    float:left;
+
+}
+
+#treeLeft ul {
+    margin-left:2px;
+
+}
+
+
+
+#treeLeft ul li a:hover {
+    text-decoration: underline;
+    background-color:orange;
+
+}
+
+*.box {
+    border: solid 1px #5F6800;
+    padding:1em;
+    margin-top:1em;
+}
+
+*.error {
+    color: red;
+}
+
+*.button
+{
+display:inline;
+background-color: #939B00 ;
+border: solid 1px #5F6800;
+font-weight: bold;
+padding: 0.25em;
+font-size: 0.8em;
+color: #F2F3DE;
+width:60px;
+vertical-align: middle;
+cursor: pointer;
+}
+
+
+
+.viewbutton  {
+background: gray;
+color: black;
+border: solid 1px #5F6800;
+margin-top: 0.25em;
+padding-left:1em;
+padding-right:1em;
+cursor: pointer;
+}
+
+.viewbuttonActive {
+background: #939B00 ;
+color: #F2F3DE;
+border: solid 1px #5F6800;
+margin-top: 0.25em;
+padding-left:1em;
+padding-right:1em;
+cursor: pointer;
+}
+
+.save {
+background: #939B00 url('images/buttonbg.gif') repeat-x;
+border: solid 1px #5F6800;
+font-weight: bold;
+padding: 0.25em;
+font-size: 0.8em;
+color: #F2F3DE;
+width:50px;
+vertical-align: middle;
+}
+
+.cancel {
+background: #939B00 url('images/buttonbg.gif') repeat-x;
+border: solid 1px #5F6800;
+font-weight: bold;
+padding: 0.25em;
+font-size: 0.8em;
+color: #F2F3DE;
+width:50px;
+vertical-align: middle;
+    margin-left:2em;
+}
+
+.ida_header {
+    border-bottom: 1px solid gray;
+    padding:5px;
+}
+
+h2.ida_eventHeader {
+    border-bottom: 1px solid gray;
+    padding:5px;
+}
+
+h2.ida_partHeader {
+    border-bottom: 1px solid gray;
+    padding:5px;
+}
+
+._div {
+    margin-top:2em;
+    min-height:2em;
+}
+
+div.column_title {
+    margin-top:1em;
+	font-weight: bold;
+	width:15em;
+}
+
+img.ilink {
+    text-decoration:none;
+    font-weight:bold;
+    border:none;
+}
+
+div.ilink {
+    position:absolute;
+    margin-left:0em;
+    margin-top:0em;
+    border:none;
+    width:20px;
+    height:20px;
+
+}
+
+a.ilink:focus  {
+   /* background-image: url('images/focus.png'); */
+}
+
+a.ilink:hover {
+    background-color:orange;
+
+}
+
+#idalinkboardholder {
+
+
+    background: #7F8400;
+    color:white;
+    border-top: 10px solid gray;
+    width: 120px;
+    padding:5px;
+    top:0px;
+    right:0px;
+    z-index:50;
+    overflow: auto;
+}
+
+td {
+    padding:10px;
+    vertical-align:top;
+}
+
+li.onto_table {
+
+    font-weight:bold;
+    color:blue;
+}
+
+li.onto_type {
+
+    font-weight:bold;
+    color:green;
+}
+
+.onto_proptitle {
+
+    font-weight:bold;
+
+}
+
+
+.property_title {
+    margin-bottom:0em;
+    margin-top:2em;
+    font-style:italic;
+    font-weight:bold;
+
+
+}
+
+button.wide {
+    width:100%;
+}
+
+div.divSel {
+
+    width: 200px; 
+    height: 50px; 
+    overflow: auto;
+
+
+}
+
+a.edit {
+    background-color:orange;
+}
+
+a.delete {
+
+    width:20px;
+    height:10px;
+    margin-left:1em;
+    color:white;
+    font-weight: bold;
+    text-decoration:none;
+    padding:3px;
+    background-color:red;
+    border: solid 1px #5F6800;
+}
+
+div.selInstance {
+    margin:10px;
+    padding:4px;
+    color: black;
+    font-weight: bold;
+    border: solid 1px #5F6800;
+}
+
+
+input {
+    font-weight:bold;
+    margin-right:1em;
+
+}
+
+input.ida_search {
+    width:10em;
+}
+
+input.checkbox {
+    margin-right: 0em;
+}
+
+input:focus {
+    background-color:#C2C67F;
+}
+
+
+
+textarea {
+    height:8em;
+    min-width:20em;
+    margin-left:0em;
+    border-left: solid 1px #5F6800;
+}
+
+textarea.rawXMLArea {
+    height:25em;
+}
+
+img.dublicator {
+    margin-left:4em;
+    border:none;
+}
+
+
+.save_container {
+    margin-top:4em;
+}
+
+.property_div {
+    margin-top:1em;
+}
+
+
+  .fieldsDiv {
+	min-height:4em;
+    }
+
+
+.idaclass_div {
+
+    background: white;
+    margin-top:12px;
+}
+
+
+.clear {
+    clear:both;
+    padding-top:1em;
+}
+
+div.files {
+    background: white;
+    width:15em;
+    min-height:120px;
+}
+
+.image {
+    /*background-color: orange;*/
+    width:100px;
+    padding:5px;
+    margin:0px;
+    margin-left:5px;
+    margin-top:5px;
+    border: 1px solid #999;
+    border-top: 5px solid #999;
+
+
+}
+
+.fakelink {
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom:1em;
+}
+
+.editDiv {
+    padding:20px;
+    border: solid 1px #5F6800;
+    -moz-border-radius:15px;
+}
+
+.ida-autocomplete {
+    position:absolute;
+    z-index:2000;  
+}
+
+div.ida-autocomplete ul {
+    background-color: #333; 
+    list-style:none;
+    margin: 0 0 -4px 0;
+    -moz-border-radius:0 0 6px 6px;
+}
+
+div.ida-autocomplete ul li {
+    color: #ccc; 
+    text-align:left;
+	font-weight: bold;
+    padding: 3px 6px;
+}
+
+div.ida-autocomplete ul li:hover {
+    background-color: #1B5CCD;
+}
+
+div.ida-autocomplete ul li.hilite {
+    background-color: #566;
+}
+
+div.ida-autocomplete ul li div.info {
+    color: #ccc;
+	font-weight: normal;
+}

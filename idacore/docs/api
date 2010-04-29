@@ -1,0 +1,30 @@
+
+Creating documentation for APIs
+------------------------------------
+
+
+***********************
+PHP-API:
+***********************
+
+- install PhpDocumentor:
+
+sudo pear install PhpDocumentor
+
+- Run this from /idacore/server/ directory
+
+phpdoc -o HTML:frames:earthli -f class.IdaClass.php,class.IdaRecord.php,class.IdaTable.php,class.IdaDB.php,class.IdaXMLIO.php,class.IdaLog.php,class.IdaSession.php,class.IdaUpLoader.php,class.DBManager.php -t docs
+
+**********************
+Javascript API:
+**********************
+
+Download jsdoc from (you need Java):
+
+http://jsdoctoolkit.org/
+
+- run this from jsdoc-toolkit directory
+
+java -jar jsrun.jar app/run.js -a -t=templates/jsdoc YOURPATH/IdaBase.js YOURPATH/IdaBrowser.js
+
+By default, docs can be found from /jsdoc-toolkit/out/ directory.

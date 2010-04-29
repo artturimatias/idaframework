@@ -1,0 +1,8 @@
+
+php_value mbstring.language "Neutral"
+php_value mbstring.internal_encoding  "UTF-8"
+php_value mbstring.http_input "auto" 
+php_flag mbstring.encoding_translation on
+php_value mbstring.http_output "UTF-8"
+php_value mbstring.detect_order "auto"
+php_value default_charset "UTF-8"

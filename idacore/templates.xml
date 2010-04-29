@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<template>
+
+<addtemplate>
+
+
+    <Period>
+        <has_time-span table="time_span" title="P4F.has_time-span" required="1" action="input" />
+    </Period>
+
+
+    <Actor>
+        <has_note table="note" required="0" action="input" />
+        <is_identified_by table="appellation" required="1" action="input" />
+    </Actor>
+
+
+    <Person>
+        <was_born class="Birth" group="modifications" required="1" action="create_by_default" />
+    </Person>
+
+
+    <Birth>
+        <by_mother class="Female" required="0" action="search_create" />
+        <from_father class="Male" required="0" action="search_create" />
+        <took_place_at class="Place" required="0" action="search_create" />
+   </Birth>
+
+
+
+    <Man-Made_Object>
+        <has_note table="note" required="0" action="input" />
+        <was_produced_by class="Production" group="modifications" required="1" action="create_by_default" />
+        <has_representation class="Digital_Image" group="images" required="" action="search_create" />
+    </Man-Made_Object>
+
+
+
+    <Activity>
+        <carried_out_by class="Actor" required="0" action="search_create"/>
+    </Activity>
+
+
+    <Group>
+        <is_identified_by table="appellation"  required="1" action="input" />
+        <was_formed_by class="Formation" required="0" action="create_by_default" />
+    </Group>
+
+
+
+    <Design_or_Procedure>
+        <is_identified_by table="appellation" required="1" action="input" />
+    </Design_or_Procedure>
+
+
+
+    <Information_Object>
+        <was_created_by class="Creation" group="modifications" required="1" action="create_by_default" />
+    </Information_Object>
+
+
+
+    <Type>
+        <is_identified_by table="appellation" required="1" action="input" />
+    </Type>
+
+
+
+    <Place>
+        <is_identified_by table="appellation"  required="1" action="input" />
+        <falls_within class="Place" group="links" translation="sijaitsee?" required="0" action="search_create" /> 
+    </Place>
+
+    <Self_Standing_Activity>
+        <is_identified_by table="appellation" required="1" action="input" />
+        <had_participant class="Actor" required="0" action="search_create" />
+    </Self_Standing_Activity>
+
+    <Archive_Document>
+        <has_preferred_identifier table="appellation" required="1" />
+        <has_dimension table="dimension_2d" required="0" />
+        <consists_of class="Material" required="0" action="search_create" />
+    </Archive_Document>
+
+    <Map>
+        <depicts class="Place" group="basics" required="1" action="search_create" />
+    </Map>
+
+    <Building>
+        <is_identified_by table="appellation" required="1" action="input" />
+        <has_current_location class="Place" action="search_create"
+        group="basics" />
+    </Building>
+
+    <Room>
+        <is_identified_by table="appellation" required="1" action="input" />
+        <P46B.forms_part_of class="Man-Made_Object" group="basics" required="1" action="search_create" />
+    </Room>
+
+    <Rakenne>
+        <P46B.forms_part_of class="Man-Made_Object" group="basics" required="1" action="search_create" />
+        <has_type class="Rakennetyyppi" group="basics" translation="rakenteen tyyppi" required="0" action="search_create" />
+    </Rakenne>
+
+    <Pintakäsittely>
+        <has_type class="Pintakäsittelytyyppi" group="basics" translation="pintakäsittelyn tyyppi" required="0" action="search_create" />
+    </Pintakäsittely>
+
+    <Physical_Feature>
+        <has_note table="note" required="" action="input" />
+        <was_produced_by class="Production" group="modifications" required="1" action="create_by_default" />
+        <is_found_on class="Man-Made_Object" group="basics" required="1" action="search_create" />
+    </Physical_Feature>
+
+
+
+    <Furniture>
+        <has_current_location class="Room" group="basics" translation="ja palli sijaitsee huoneessa?" required="1" action="search_create" />
+        <has_type class="Furniture_Type" group="basics" translation="onko palli, pöytä vai mikä?" required="1" action="search_create" />
+    </Furniture>
+
+    <Production>
+		<used_specific_technique class="Architectural_Design" required="0" action="search_create" context_class="Furniture" context_property="P108B.was_produced_by" />
+    </Production>
+
+    <Presentation>
+        <is_identified_by table="appellation" required="1" action="input" />
+        <is_documented_in table="xml" required="0" action="input" />
+    </Presentation>
+
+
+    <Building_Plan>
+        <depicts class="Building" group="basics" translation="kuvaa rakennusta" required="1" action="search_create" />
+        <has_type class="Building_Plan_Type" group="basics" translation="piirustuksen tyyppi" required="0" action="search_create" />
+    </Building_Plan>
+
+   <Digital_Image>
+        <is_identified_by table="file_appellation" required="1" translation="image id (not description of the image!)" />
+        <has_note table="note" required="0" action="input" />
+   </Digital_Image>
+
+    <Painting>
+        <has_title table="appellation"  required="1" action="input" />
+    </Painting>
+
+</addtemplate>
+
+
+
+</template>
