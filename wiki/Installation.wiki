@@ -19,16 +19,21 @@
     ** postgresql: createdb _your_databasename_
 
 == Installation from SVN ==
-By using symlinks it is possible to set
+By using symlinks one can update the code without deleting config-settings.
+
   * first checkout the code from svn:
   http://code.google.com/p/idaframework/source/checkout
 
-- make a new directory in your server document root (for example idadev_test)
-- copy or symlink server-directory under it
+  * make a new directory in your server document root (for example idadev_test)
+  * symlink server-directory from /idaframerwork-read-only/idacore/ under idadev.
+
+/YOUR_SERVERROOT/idadev_test/server/
+
+  * copy config.php to idadev_test/
 
 
 
-Edit /idacore/server/config.php and define:
+Edit /idadev_test/config.php and define:
 - database name
 - database user
 - database password 
