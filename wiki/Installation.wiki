@@ -15,7 +15,7 @@
 == Setting database ==
 
   * you must create a database for IDA:
-    ** mysql: create database _your_databasename_ DEFAULT character set utf8
+    ** CREATE DATABASE idadev CHARACTER SET utf8 COLLATE utf8_swedish_ci;
     ** postgresql: createdb _your_databasename_
 
 == Installation from SVN ==
