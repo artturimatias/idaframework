@@ -1,0 +1,35 @@
+
+TODO:
+
+Graphical User Interface:
+- rewriting using JQuery
+- better time expressions 
+- editor for editing templates
+- drag&drop for attaching files to records
+- more advanced search (current quicksearch only finds things that has appellation)
+
+
+Server:
+- CIDOC-CRM compatible mode (types are not presented as classes)
+- file handling
+- advanced search
+- table editing
+- translations for classes and types
+- user privileges
+- Properly login hash handling
+- Paging for search results
+- roles for participants
+
+
+
+known issues:
+- Quicksearch duplicates records if record has more than one appellation (for example appellation and object identifier)
+- It is not possible to set empty value in the field that allready has a value (I think this should be done explicitly -> "clear this field")
+- Class tree is not in alphabetical order
+- It is possible to remove required value
+
+
+CHANGES:
+- added grouping to templates 5.3.2009
+- smarter record load (group modifications, actions and parts earlier)15.3.2009
+- simple place hierarchy getter 24.3.2009

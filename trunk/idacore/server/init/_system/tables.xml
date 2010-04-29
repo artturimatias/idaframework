@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<tables>
+
+    <table>
+        <name>appellation</name>
+        <shortcutclass ID="E41" title="Appellation"/>
+        <quicksearch>1</quicksearch>
+        <comment>names of things</comment>
+        <declaration>
+            <index>
+                <name>name_index</name>
+                <field>
+			<name>name</name>
+		</field>
+            </index>
+            <field>
+                <name>name</name>
+                <type>text</type>
+                <length>255</length>
+                <display_length>30</display_length>
+            </field>
+            
+        </declaration>
+    </table>
+    
+
+    <table>
+        <name>file_appellation</name>
+        <shortcutclass ID="E41" title="Appellation"/>
+        <quicksearch>1</quicksearch>
+        <comment>names of files</comment>
+        <declaration>
+            <index>
+                <name>fname_index</name>
+                <field>
+			<name>filename</name>
+		</field>
+            </index>
+            <field>
+                <name>filename</name>
+                <type>text</type>
+                <length>255</length>
+                <display_length>30</display_length>
+            </field>
+            
+        </declaration>
+    </table>
+    
+
+    <table>
+        <name>object_identifier</name>
+        <shortcutclass ID="E42" title="Object_Identifier"/>
+        <quicksearch>1</quicksearch>
+        <declaration>
+            
+            <field>
+                <name>identifier</name>
+                <type>text</type>
+                <required>1</required>
+                <length>60</length>
+                <display_length>5</display_length>
+            </field>
+
+            
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>time_span</name>
+        <shortcutclass ID="E52" title="Time-Span"/>
+        <quicksearch>0</quicksearch>
+        <comment>time-spans</comment>
+        <declaration>
+            <index>
+                <name>start_date</name>
+                <field>
+                    <name>start_year</name>
+                </field>
+                <field>
+                    <name>start_month</name>
+                </field>
+                <field>
+                    <name>start_day</name>
+                </field>
+            </index>
+            
+            <index>
+                <name>start_time</name>
+                <field>
+                    <name>start_time</name>
+                </field>
+            </index>
+            
+            <index>
+                <name>end_date</name>
+                <field>
+                    <name>end_year</name>
+                </field>
+                <field>
+                    <name>end_month</name>
+                </field>
+                <field>
+                    <name>end_day</name>
+                </field>
+            </index>
+            
+            <index>
+                <name>end_time</name>
+                <field>
+                    <name>end_time</name>
+                </field>
+            </index>
+            
+            
+            <field>
+                <name>start_day</name>
+                <type>integer</type>
+                <display_length>2</display_length>
+                <display>float</display>
+            </field>
+            
+            <field>
+                <name>start_month</name>
+                <type>integer</type>
+                <display_length>2</display_length>
+                <display>float</display>
+            </field>
+            
+            <field>
+                <name>start_year</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+                <display_length>5</display_length>
+                <display>float</display>
+                <required>1</required>
+            </field>
+            
+            <field>
+                <name>start_time</name>
+                <type>time</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>start_extension</name>
+                <type>integer</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>start_comment</name>
+                <type>text</type>
+                <display_length>50</display_length>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>end_day</name>
+                <type>integer</type>
+                <display_length>2</display_length>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>end_month</name>
+                <type>integer</type>
+                <display_length>2</display_length>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>end_year</name>
+                <type>integer</type>
+                <display_length>5</display_length>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>end_time</name>
+                <type>time</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>end_extension</name>
+                <type>integer</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>end_comment</name>
+                <type>text</type>
+                <display_length>50</display_length>
+                <display>none</display>
+            </field>
+        </declaration>
+    </table>
+
+
+
+    <table>
+        <name>email</name>
+        <quicksearch>0</quicksearch>
+        <shortcutclass ID="E51" title="Contact_Point"/>
+        <comment>email addresses</comment>
+        <declaration>
+            
+            <field>
+                <name>email</name>
+                <type>text</type>
+                <display_length>30</display_length>
+            </field>
+            
+        </declaration>
+    </table>
+
+
+
+    <table>
+        <name>phone</name>
+        <quicksearch>0</quicksearch>
+        <shortcutclass ID="E51" title="Contact_Point"/>
+        <comment>phone numbers</comment>
+        <declaration>
+            
+            <field>
+                <name>phone_number</name>
+                <type>text</type>
+                <display_length>30</display_length>
+            </field>
+            
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>xml</name>
+        <quicksearch>0</quicksearch>
+        <shortcutclass ID="E73" title="Information_Object"/>
+        <comment>XML data storage</comment>
+        <declaration>
+            
+            <field>
+                <name>xml</name>
+                <type>text</type>
+                <display_length>300</display_length>
+            </field>
+            
+        </declaration>
+    </table>
+
+
+
+    <table>
+        <name>dimension_2d</name>
+        <quicksearch>0</quicksearch>
+        <shortcutclass ID="E54" title="Dimension"/>
+        <comment>2-dimensional measurements</comment>
+        <declaration>
+            
+            <field>
+                <name>width_2d</name>
+                <type>decimal</type>
+                <display>float</display>
+                <display_length>3</display_length>
+            </field>
+            <field>
+                <name>height_2d</name>
+                <type>decimal</type>
+                <display>float</display>
+                <display_length>3</display_length>
+            </field>            
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>dimension_3d</name>
+        <quicksearch>0</quicksearch>
+        <shortcutclass ID="E54" title="Dimension"/>
+        <comment>3-dimensional measurements</comment>
+        <declaration>
+            
+            <field>
+                <name>width_3d</name>
+                <type>decimal</type>
+                <display>float</display>
+            </field>
+            <field>
+                <name>height_3d</name>
+                <type>decimal</type>
+                <display>float</display>
+            </field> 
+            <field>
+                <name>depth_3d</name>
+                <type>decimal</type>
+                <display>float</display>
+            </field> 
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>note</name>
+        <quicksearch>0</quicksearch>
+        <shortcutclass ID="E62" title="String"/>
+        <comment>record notes</comment>
+        <declaration>
+            
+            <field>
+                <name>message</name>
+                <type>text</type>
+                <display_length>200</display_length>
+            </field>
+            
+        </declaration>
+    </table>
+
+
+
+    <table>
+        <name>file</name>
+        <shortcutclass ID="E73" title="Information_Object"/>
+        <quicksearch>0</quicksearch>
+        <comment>file information</comment>
+        <declaration>
+            
+            <field>
+                <name>fname</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>120</length>
+                <display>none</display>
+                <required>1</required>
+            </field>
+            
+            <field>
+                <name>original_filename</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>250</length>
+                <display>none</display>
+                <required>1</required>
+            </field>
+            
+            <field>
+                <name>extension</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>5</length>
+                <display>none</display>
+                <required>1</required>
+            </field>
+            
+            <field>
+                <name>exif_date</name>
+                <type>text</type>
+                <length>25</length>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>width</name>
+                <type>integer</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>height</name>
+                <type>integer</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>thumb_width</name>
+                <type>integer</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>thumb_height</name>
+                <type>integer</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>minithumb_width</name>
+                <type>integer</type>
+                <display>none</display>
+            </field>
+            
+            <field>
+                <name>minithumb_height</name>
+                <type>integer</type>
+                <display>none</display>
+            </field>
+        </declaration>
+    </table>
+
+    
+</tables>

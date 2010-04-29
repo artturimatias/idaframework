@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tables>
+
+    <table>
+        <name>_sys_users</name>
+        <declaration>
+            <index>
+                <name>user_id</name>
+                <field>
+                    <name>person_id</name>
+                </field>
+                <primary>1</primary>
+            </index>
+
+            <field>
+                <name>person_id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+
+                <length/>
+            </field>
+
+            <field>
+                <name>username</name>
+                <type>text</type>
+                <notnull>1</notnull>
+
+                <length>30</length>
+            </field>
+
+            <field>
+                <name>passwd</name>
+                <type>text</type>
+                <notnull>1</notnull>
+
+                <length>255</length>
+            </field>
+
+            <field>
+                <name>lang</name>
+                <type>text</type>
+                <notnull>1</notnull>
+
+                <length>2</length>
+            </field>
+
+            <field>
+                <name>status</name>
+                <type>text</type>
+                <notnull>1</notnull>
+
+                <length>10</length>
+            </field>
+
+            <field>
+                <name>timestamp</name>
+                <type>timestamp</type>
+                <notnull>0</notnull>
+                <length/>
+            </field>
+        </declaration>
+    </table>
+
+
+
+
+    <table>
+        <name>_sys_classes_join</name>
+        <declaration>
+
+            <index>
+                <name>classj_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+            </index>
+
+            <index>
+                <name>classj_subj</name>
+                <field>
+                    <name>subject</name>
+                </field>
+            </index>
+
+            <index>
+                <name>classj_prop</name>
+
+                <field>
+                    <name>property</name>
+                </field>
+            </index>
+
+            <index>
+                <name>classj_type</name>
+
+                <field>
+                    <name>has_type</name>
+                </field>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+
+                <length/>
+            </field>
+
+            <field>
+                <name>property</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>6</length>
+            </field>
+
+            <field>
+                <name>subject</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>has_type</name>
+                <type>integer</type>
+                <notnull>0</notnull>
+            </field>
+
+            <field>
+                <name>comment</name>
+                <type>text</type>
+
+                <length/>
+            </field>
+        </declaration>
+    </table>
+
+
+
+    <table>
+        <name>_sys_links</name>
+        <declaration>
+
+            <index>
+                <name>link_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+                <primary>1</primary>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>6</length>
+            </field>
+
+            <field>
+                <name>b</name>
+                <type>text</type>
+                <length>255</length>
+            </field>
+
+            <field>
+                <name>f</name>
+                <type>text</type>
+                <length>255</length>
+            </field>
+
+            <field>
+                <name>domain</name>
+                <type>integer</type>
+            </field>
+
+            <field>
+                <name>range_</name>
+                <type>integer</type>
+            </field>
+
+            <field>
+                <name>comment</name>
+                <type>text</type>
+            </field>
+
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>_sys_placeorder</name>
+        <declaration>
+
+            <index>
+                <name>place_o</name>
+                <field>
+                    <name>id</name>
+                </field>
+            </index>
+
+            <index>
+                <name>porder_rgt</name>
+                <field>
+                    <name>rgt</name>
+                </field>
+            </index>
+
+            <index>
+                <name>porder_lft</name>
+                <field>
+                    <name>lft</name>
+                </field>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>lft</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>rgt</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>_sys_tables</name>
+
+        <declaration>
+
+            <index>
+                <name>table_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+                <primary>1</primary>
+            </index>
+
+            <index>
+                <name>table_name</name>
+                <field>
+                    <name>title</name>
+                </field>
+            </index>
+
+            <index>
+                <name>table_order</name>
+                <field>
+                    <name>display_order</name>
+                </field>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+                <length/>
+            </field>
+
+            <field>
+                <name>title</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>20</length>
+            </field>
+
+            <field>
+                <name>quicksearch</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+                <length/>
+            </field>
+
+            <field>
+                <name>display_order</name>
+                <type>integer</type>
+                <default>99</default>
+                <length/>
+            </field>
+
+            <field>
+                <name>comment</name>
+                <type>text</type>
+                <notnull>0</notnull>
+                <length/>
+            </field>
+
+            <field>
+                <name>shortcut</name>
+                <type>text</type>
+                <notnull>0</notnull>
+                <length>5</length>
+            </field>
+
+        </declaration>
+    </table>
+
+
+
+
+    <table>
+        <name>_sys_columns</name>
+        <declaration>
+
+            <index>
+                <name>column_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+                <field>
+                    <name>table_id</name>
+                </field>
+                <primary>1</primary>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>20</length>
+            </field>
+
+            <field>
+                <name>nid</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>table_id</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>20</length>
+            </field>
+
+            <field>
+                <name>display_order</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+                <default>0</default>
+            </field>
+
+            <field>
+                <name>required</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+                <default>0</default>
+            </field>
+
+            <field>
+                <name>width</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+                <default>20</default>
+            </field>
+
+            <field>
+                <name>display</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>10</length>
+                <default>block</default>
+            </field>
+
+            <field>
+                <name>col_type</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>10</length>
+                <default></default>
+            </field>
+
+            <field>
+                <name>prefix</name>
+                <type>text</type>
+                <length>10</length>
+                <default></default>
+            </field>
+
+            <field>
+                <name>options</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>20</length>
+                <default></default>
+            </field>
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>_sys_words</name>
+
+        <declaration>
+
+            <index>
+                <name>word_index</name>
+                <field>
+                    <name>word</name>
+                </field>
+                <primary>1</primary>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>word</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>50</length>
+            </field>
+
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>_sys_words_join</name>
+
+        <declaration>
+
+            <index>
+                <name>wordsj_rid</name>
+                <field>
+                    <name>record_id</name>
+                </field>
+            </index>
+
+            <index>
+                <name>wordsj_wid</name>
+                <field>
+                    <name>word_id</name>
+                </field>
+            </index>
+
+            <index>
+                <name>wordsj_tid</name>
+                <field>
+                    <name>table_id</name>
+                </field>
+            </index>
+
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>word_id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>record_id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>table_id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>column_id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>row_id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+        </declaration>
+    </table>
+
+
+
+
+
+    <table>
+        <name>_sys_records</name>
+        <declaration>
+
+            <index>
+                <name>record_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+                <primary>1</primary>
+            </index>
+
+            <index>
+                <name>map_id_i</name>
+                <field>
+                    <name>map_id</name>
+                </field>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>map_id</name>
+                <type>text</type>
+                <notnull>0</notnull>
+                <length>30</length>
+            </field>
+
+        </declaration>
+    </table>
+
+
+
+
+
+    <table>
+        <name>_sys_records_join</name>
+        <declaration>
+
+            <index>
+                <name>recordsj_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+            </index>
+
+            <index>
+                <name>recordsj_subj</name>
+                <field>
+                    <name>subject</name>
+                </field>
+            </index>
+
+            <index>
+                <name>recordsj_prop</name>
+                <field>
+                    <name>property</name>
+                </field>
+            </index>
+
+            <index>
+                <name>recordsj_linktype</name>
+                <field>
+                    <name>link_type</name>
+                </field>
+            </index>
+
+
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+
+                <length/>
+            </field>
+
+            <field>
+                <name>subject</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>link_type</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>6</length>
+            </field>
+
+
+            <field>
+                <name>property</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>link_info</name>
+                <type>text</type>
+                <length>255</length>
+            </field>
+        </declaration>
+    </table>
+
+    <table>
+        <name>_sys_linkboard</name>
+        <declaration>
+
+            <index>
+                <name>linkboard_uid</name>
+                <field>
+                    <name>uid</name>
+                </field>
+                <primary>1</primary>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+                <length>6</length>
+            </field>
+
+            <field>
+                <name>uid</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+                <length>6</length>
+            </field>
+
+            <field>
+                <name>fileid</name>
+                <type>integer</type>
+            </field>
+
+            <field>
+                <name>record_id</name>
+                <type>integer</type>
+            </field>
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>_sys_errorlog</name>
+        <declaration>
+
+            <index>
+                <name>log_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+
+                <length/>
+            </field>
+
+            <field>
+                <name>remote_addr</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>120</length>
+            </field>
+
+            <field>
+                <name>http_user_agent</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>255</length>
+            </field>
+
+            <field>
+                <name>request_uri</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>120</length>
+
+            </field>
+
+            <field>
+                <name>error</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>250</length>
+            </field>
+
+
+        </declaration>
+    </table>
+
+
+    <table>
+        <name>_sys_cache</name>
+        <declaration>
+
+            <index>
+                <name>cache_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>text</type>
+                <length>35</length>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>query</name>
+                <type>text</type>
+                <length>250</length>
+            </field>
+
+
+            <field>
+                <name>uid</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>remote_addr</name>
+                <type>text</type>
+                <length>120</length>
+            </field>
+
+            <field>
+                <name>http_user_agent</name>
+                <type>text</type>
+                <length>250</length>
+            </field>
+
+
+            <field>
+                <name>timestamp</name>
+                <type>timestamp</type>
+                <notnull>1</notnull>
+            </field>
+
+        </declaration>
+    </table>
+
+
+
+    <table>
+        <name>_sys_eventlog</name>
+        <declaration>
+
+            <index>
+                <name>eventlog_id</name>
+                <field>
+                    <name>id</name>
+                </field>
+            </index>
+
+            <field>
+                <name>id</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>uid</name>
+                <type>integer</type>
+                <notnull>1</notnull>
+            </field>
+
+            <field>
+                <name>act</name>
+                <type>text</type>
+                <notnull>1</notnull>
+                <length>20</length>
+            </field>
+
+            <field>
+                <name>seed</name>
+                <type>text</type>
+                <length>120</length>
+            </field>
+
+            <field>
+                <name>remote_addr</name>
+                <type>text</type>
+                <length>120</length>
+            </field>
+
+            <field>
+                <name>http_user_agent</name>
+                <type>text</type>
+                <length>250</length>
+            </field>
+
+            <field>
+                <name>record_id</name>
+                <type>integer</type>
+            </field>
+
+
+            <field>
+                <name>timestamp</name>
+                <type>timestamp</type>
+                <notnull>1</notnull>
+            </field>
+
+        </declaration>
+    </table>
+
+
+</tables>

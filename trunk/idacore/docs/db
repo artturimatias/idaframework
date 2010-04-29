@@ -1,0 +1,30 @@
+---------
+POSTGRESQL
+---------
+
+Show users: 
+\du
+
+Add user:
+CREATE USER my_user WITH PASSWORD 'myPassword';
+
+Grant privileges:
+GRANT ALL PRIVILEGES ON DATABASE dbname to my_user;
+
+
+
+-----
+MYSQL
+-----
+Show users:
+SELECT * from mysql.user;
+
+Add user:
+CREATE USER 'my_user'@'localhost' IDENTIFIED BY 'some_pass';
+
+Grant privileges:
+GRANT ALL PRIVILEGES ON my_database.* TO 'my_user'@'localhost';
+
+Check privileges:
+SHOW GRANTS FOR 'my_user'@'localhost';
+

@@ -1,0 +1,78 @@
+
+Installing IDA-framework on Debian-based system
+
+---------------------------------------------------
+Apache + PHP:
+---------------------------------------------------
+
+- sudo apt-get install apache2
+- sudo apt-get install php5
+- make a following file in /var/www/:
+
+<?php
+	phpinfo();
+?>
+
+- browse to http://localhost/
+- you should see a page full of php information.
+
+
+
+--------------------------------------------------
+MDB2:
+--------------------------------------------------
+- sudo apt-get install php-pear
+- sudo pear install MDB2
+
+
+
+--------------------------------------------------
+Mysql or PostgreSQL:
+--------------------------------------------------
+MySql:
+- sudo apt-get install mysql-server
+- installations asks for root password for mysql. 
+- test with: mysql -u root -p
+- this shoud take your to the mysql prompt. Quit by typing exit.
+
+MySQL connections for PHP:
+- sudo apt-get install php5-mysql 
+
+MDB2-driver for mysql:
+- sudo pear install MDB2#mysql
+
+restart apache and mysql:
+sudo /etc/init.d/apache2 restart
+sudo /etc/init.d/mysql restart
+
+
+
+PostgreSql:
+- sudo apt-get install postgresql
+- sudo su postgres
+- createuser -d -a -P your_unix_login_name
+- exit
+- createdb your_preferred_databasename
+
+pgsql connections for PHP:
+sudo apt-get install php5-pgsql
+
+MDB2-driver for pgsql:
+- sudo pear install MDB2#pgsql
+
+
+Again, reload http://localhost/. There you should see a section called mysql or/and postgresql if everything went fine. 
+
+
+Edit /idacore/server/config.php and define:
+- database name
+- database user
+- database password 
+- databasetype
+
+Now everything should be ready and setup can be launched:
+
+- Aim browser to /idacore/server/init/
+
+
+

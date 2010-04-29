@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xml:lang="en">
+  <rdfs:Class rdf:ID="E1.CRM_Entity">
+</rdfs:Class>
+  <rdfs:Class rdf:ID="E62.String"/>
+  <rdfs:Class rdf:ID="E2.Temporal_Entity">
+    <rdfs:subClassOf rdf:resource="#E1.CRM_Entity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E3.Condition_State">
+    <rdfs:subClassOf rdf:resource="#E2.Temporal_Entity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E4.Period">
+    <rdfs:subClassOf rdf:resource="#E2.Temporal_Entity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E5.Event">
+    <rdfs:subClassOf rdf:resource="#E4.Period"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E6.Destruction">
+    <rdfs:subClassOf rdf:resource="#E64.End_of_Existence"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E7.Activity">
+    <rdfs:subClassOf rdf:resource="#E5.Event"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E8.Acquisition">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E9.Move">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E10.Transfer_of_Custody">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E11.Modification">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E12.Production">
+    <rdfs:subClassOf rdf:resource="#E11.Modification"/>
+    <rdfs:subClassOf rdf:resource="#E63.Beginning_of_Existence"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E13.Attribute_Assignment">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E14.Condition_Assessment">
+    <rdfs:subClassOf rdf:resource="#E13.Attribute_Assignment"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E15.Identifier_Assignment">
+    <rdfs:subClassOf rdf:resource="#E13.Attribute_Assignment"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E16.Measurement">
+    <rdfs:subClassOf rdf:resource="#E13.Attribute_Assignment"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E17.Type_Assignment">
+    <rdfs:subClassOf rdf:resource="#E13.Attribute_Assignment"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E18.Physical_Thing">
+    <rdfs:subClassOf rdf:resource="#E72.Legal_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E19.Physical_Object">
+    <rdfs:subClassOf rdf:resource="#E18.Physical_Thing"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E20.Biological_Object">
+    <rdfs:subClassOf rdf:resource="#E19.Physical_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E21.Person">
+    <rdfs:subClassOf rdf:resource="#E20.Biological_Object"/>
+    <rdfs:subClassOf rdf:resource="#E39.Actor"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E22.Man-Made_Object">
+    <rdfs:subClassOf rdf:resource="#E19.Physical_Object"/>
+    <rdfs:subClassOf rdf:resource="#E24.Physical_Man-Made_Thing"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E24.Physical_Man-Made_Thing">
+    <rdfs:subClassOf rdf:resource="#E18.Physical_Thing"/>
+    <rdfs:subClassOf rdf:resource="#E71.Man-Made_Thing"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E25.Man-Made_Feature">
+    <rdfs:subClassOf rdf:resource="#E24.Physical_Man-Made_Thing"/>
+    <rdfs:subClassOf rdf:resource="#E26.Physical_Feature"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E26.Physical_Feature">
+    <rdfs:subClassOf rdf:resource="#E18.Physical_Thing"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E27.Site">
+    <rdfs:subClassOf rdf:resource="#E26.Physical_Feature"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E28.Conceptual_Object">
+    <rdfs:subClassOf rdf:resource="#E71.Man-Made_Thing"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E29.Design_or_Procedure">
+    <rdfs:subClassOf rdf:resource="#E73.Information_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E30.Right">
+    <rdfs:subClassOf rdf:resource="#E89.Propositional_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E31.Document">
+    <rdfs:subClassOf rdf:resource="#E73.Information_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E32.Authority_Document">
+    <rdfs:subClassOf rdf:resource="#E31.Document"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E33.Linguistic_Object">
+    <rdfs:subClassOf rdf:resource="#E73.Information_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E34.Inscription">
+    <rdfs:subClassOf rdf:resource="#E33.Linguistic_Object"/>
+    <rdfs:subClassOf rdf:resource="#E37.Mark"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E35.Title">
+    <rdfs:subClassOf rdf:resource="#E33.Linguistic_Object"/>
+    <rdfs:subClassOf rdf:resource="#E41.Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E36.Visual_Item">
+    <rdfs:subClassOf rdf:resource="#E73.Information_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E37.Mark">
+    <rdfs:subClassOf rdf:resource="#E36.Visual_Item"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E38.Image">
+    <rdfs:subClassOf rdf:resource="#E36.Visual_Item"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E39.Actor">
+    <rdfs:subClassOf rdf:resource="#E77.Persistent_Item"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E40.Legal_Body">
+    <rdfs:subClassOf rdf:resource="#E74.Group"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E41.Appellation">
+    <rdfs:subClassOf rdf:resource="#E90.Symbolic_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E42.Identifier">
+    <rdfs:subClassOf rdf:resource="#E41.Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E44.Place_Appellation">
+    <rdfs:subClassOf rdf:resource="#E41.Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E45.Address">
+    <rdfs:subClassOf rdf:resource="#E44.Place_Appellation"/>
+    <rdfs:subClassOf rdf:resource="#E51.Contact_Point"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E46.Section_Definition">
+    <rdfs:subClassOf rdf:resource="#E44.Place_Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E47.Spatial_Coordinates">
+    <rdfs:subClassOf rdf:resource="#E44.Place_Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E48.Place_Name">
+    <rdfs:subClassOf rdf:resource="#E44.Place_Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E49.Time_Appellation">
+    <rdfs:subClassOf rdf:resource="#E41.Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E50.Date">
+    <rdfs:subClassOf rdf:resource="#E49.Time_Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E51.Contact_Point">
+    <rdfs:subClassOf rdf:resource="#E41.Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E52.Time-Span">
+    <rdfs:subClassOf rdf:resource="#E1.CRM_Entity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E53.Place">
+    <rdfs:subClassOf rdf:resource="#E1.CRM_Entity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E54.Dimension">
+    <rdfs:subClassOf rdf:resource="#E1.CRM_Entity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E55.Type">
+    <rdfs:subClassOf rdf:resource="#E28.Conceptual_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E56.Language">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E57.Material">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E58.Measurement_Unit">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E63.Beginning_of_Existence">
+    <rdfs:subClassOf rdf:resource="#E5.Event"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E64.End_of_Existence">
+    <rdfs:subClassOf rdf:resource="#E5.Event"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E65.Creation">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+    <rdfs:subClassOf rdf:resource="#E63.Beginning_of_Existence"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E66.Formation">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+    <rdfs:subClassOf rdf:resource="#E63.Beginning_of_Existence"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E67.Birth">
+    <rdfs:subClassOf rdf:resource="#E63.Beginning_of_Existence"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E68.Dissolution">
+    <rdfs:subClassOf rdf:resource="#E64.End_of_Existence"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E69.Death">
+    <rdfs:subClassOf rdf:resource="#E64.End_of_Existence"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E70.Thing">
+    <rdfs:subClassOf rdf:resource="#E77.Persistent_Item"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E71.Man-Made_Thing">
+    <rdfs:subClassOf rdf:resource="#E70.Thing"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E72.Legal_Object">
+    <rdfs:subClassOf rdf:resource="#E70.Thing"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E73.Information_Object">
+    <rdfs:subClassOf rdf:resource="#E89.Propositional_Object"/>
+    <rdfs:subClassOf rdf:resource="#E90.Symbolic_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E74.Group">
+    <rdfs:subClassOf rdf:resource="#E39.Actor"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E75.Conceptual_Object_Appellation">
+    <rdfs:subClassOf rdf:resource="#E41.Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E77.Persistent_Item">
+    <rdfs:subClassOf rdf:resource="#E1.CRM_Entity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E78.Collection">
+    <rdfs:subClassOf rdf:resource="#E24.Physical_Man-Made_Thing"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E79.Part_Addition">
+    <rdfs:subClassOf rdf:resource="#E11.Modification"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E80.Part_Removal">
+    <rdfs:subClassOf rdf:resource="#E11.Modification"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E81.Transformation">
+    <rdfs:subClassOf rdf:resource="#E63.Beginning_of_Existence"/>
+    <rdfs:subClassOf rdf:resource="#E64.End_of_Existence"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E82.Actor_Appellation">
+    <rdfs:subClassOf rdf:resource="#E41.Appellation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E83.Type_Creation">
+    <rdfs:subClassOf rdf:resource="#E65.Creation"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E84.Information_Carrier">
+    <rdfs:subClassOf rdf:resource="#E22.Man-Made_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E85.Joining">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E86.Leaving">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E87.Curation_Activity">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E89.Propositional_Object">
+    <rdfs:subClassOf rdf:resource="#E28.Conceptual_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="E90.Symbolic_Object">
+    <rdfs:subClassOf rdf:resource="#E28.Conceptual_Object"/>
+    <rdfs:subClassOf rdf:resource="#E72.Legal_Object"/>
+  </rdfs:Class>
+
+
+
+
+  <rdfs:Class rdf:ID="U2.Firm">
+    <rdfs:subClassOf rdf:resource="#E40.Legal_Body"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U3.Little_firm">
+    <rdfs:subClassOf rdf:resource="#U2.Firm"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U10.Female">
+    <rdfs:subClassOf rdf:resource="#E21.Person"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U11.Male">
+    <rdfs:subClassOf rdf:resource="#E21.Person"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U13.Self_Standing_Activity">
+    <rdfs:subClassOf rdf:resource="#E7.Activity"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U23.University">
+    <rdfs:subClassOf rdf:resource="#E40.Legal_Body"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U20.Archive_Document">
+    <rdfs:subClassOf rdf:resource="#E84.Information_Carrier"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U21.Manufacturing_Technique">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U30.Map">
+    <rdfs:subClassOf rdf:resource="#U20.Archive_Document"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U32.Building_Plan">
+    <rdfs:subClassOf rdf:resource="#U20.Archive_Document"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U31.Map_Type">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U34.Building_Plan_Type">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U40.Country">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U41.City">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U42.Street">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U43.Municipality">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U44.Village">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U45.Lake">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U46.River">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U47.Mountain">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U48.Campus">
+    <rdfs:subClassOf rdf:resource="#E53.Place"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:ID="U50.Building">
+    <rdfs:subClassOf rdf:resource="#E22.Man-Made_Object"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:ID="U51.Room">
+    <rdfs:subClassOf rdf:resource="#E22.Man-Made_Object"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:ID="U100.Painting">
+    <rdfs:subClassOf rdf:resource="#E22.Man-Made_Object"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:ID="U60.Architectural_Design">
+    <rdfs:subClassOf rdf:resource="#E29.Design_or_Procedure"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U61.City_Plan">
+    <rdfs:subClassOf rdf:resource="#E29.Design_or_Procedure"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:ID="U52.Furniture">
+    <rdfs:subClassOf rdf:resource="#E22.Man-Made_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U53.Building_Plan_Type">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U54.Furniture_Design">
+    <rdfs:subClassOf rdf:resource="#E29.Design_or_Procedure"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U55.Furniture_Type">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U70.Presentation">
+    <rdfs:subClassOf rdf:resource="#E73.Information_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U71.Digital_Image">
+    <rdfs:subClassOf rdf:resource="#E38.Image"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:ID="U72.Rakenne">
+    <rdfs:subClassOf rdf:resource="#E22.Man-Made_Object"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="U75.Rakennetyyppi">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:ID="U73.Pintakäsittely">
+    <rdfs:subClassOf rdf:resource="#E25.Man-Made_Feature"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:ID="U74.Pintakäsittelytyyppi">
+    <rdfs:subClassOf rdf:resource="#E55.Type"/>
+  </rdfs:Class>
+
+
+
+
+</rdf:RDF>
