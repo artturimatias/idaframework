@@ -1,6 +1,6 @@
 #summary Installation
 
-= Setting up =
+= Setting up the IDA-server =
 
 
 == Requirements: ==
@@ -20,7 +20,6 @@
 
 == Installation from SVN ==
 
-  * 
   * first checkout the code from svn:
     `svn checkout http://idaframework.googlecode.com/svn/trunk/ idaframework-read-only`
 
@@ -53,7 +52,8 @@ Now everything should be ready and setup can be launched:
 First page tests things and if everything seems to OK, then just proceed. In ideal case, you should end up to the introduction page.
 
 When you want to update, just run *svn up* in idaframework-read-only directory.
-This works as long as there are no changes in database structure (there will changes at some point).
+This works as long as there are no changes in database structure (there will be changes at some point).
+
 --------------------------------------------------
 TROUBLESHOOTING
 --------------------------------------------------
