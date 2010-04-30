@@ -20,13 +20,15 @@
 
 == Installation from SVN ==
 
+  * cd your home dir
   * first checkout the code from svn:
     `svn checkout http://idaframework.googlecode.com/svn/trunk/ idaframework-read-only`
 
 
-  * make a new directory in your server document root (for example idadev_test)
-  * copy /idaframerwork-read-only/idacore/server under idadev_test.
-  * copy /idaframerwork-read-only/idacore/css under idadev_test.
+  * make a new directory in your server document root (for example *ida_test*)
+  * symlink /idaframerwork-read-only/idacore/server under ida_test.
+    `ln -s /YOUR_HOME_DIR/idaframework-read-only/idacore/server /YOUR_DOCUMENT_ROOT/ida_test/`
+  * symlink /idaframerwork-read-only/idacore/css under ida_test.
   * copy following files to idadev_test/:
     * config.php
     * classes.rdfs
@@ -50,7 +52,8 @@ Now everything should be ready and setup can be launched:
 
 First page tests things and if everything seems to OK, then just proceed. In ideal case, you should end up to the introduction page.
 
-
+When you want to update, just run svn up in idaframework-read-only directory.
+This works as long as there are no changes in database structure (there will changes at some point).
 --------------------------------------------------
 TROUBLESHOOTING
 --------------------------------------------------
