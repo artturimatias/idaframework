@@ -18,7 +18,7 @@ if(file_exists($root.$path.'/classes.rdfs')) {
 }
 
 if(file_exists($root.$path.'/properties.rdfs')) {
-    $properties_rdfs = $root.$path.'properties.rdfs';
+    $properties_rdfs = $root.$path.'/properties.rdfs';
 } else {
     $properties_rdfs = '../properties.rdfs';
 }
