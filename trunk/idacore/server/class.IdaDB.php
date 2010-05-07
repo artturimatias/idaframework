@@ -395,7 +395,7 @@ class IdaDB {
         }
 
         $mdb2 =& MDB2::singleton(_DSN);
-        $mdb2->setCharset("utf8");
+        //$mdb2->setCharset("utf8");
 
         if (PEAR::isError($mdb2)) {
            // trigger_error($mdb2->getMessage(), E_USER_ERROR);

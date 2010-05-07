@@ -1,12 +1,12 @@
 <?php
 
 	// database name
-define ('_DBNAME', 'YOUR_DATABASENAME');
+define ('_DBNAME', 'idadev');
 	// database user
-define ('_DBUSER', 'YOUR_DATABASEUSER');
+define ('_DBUSER', 'root');
 
 	// database password
-define ('_DBPASS', 'YOUR_DATABASE_PASSWD');
+define ('_DBPASS', '');
 
     // database type (mysql, pgsql)
 define ('_DATABASE_TYPE', 'mysql');
