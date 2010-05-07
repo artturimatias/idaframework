@@ -55,7 +55,7 @@
     
         echo "<p class=\"pass\">Main user is created!</p>\n";
         echo "<div><h2>The IDA-server is now installed!</h2>\n";
-        echo "<p>Continue to <a href='../../../introduction/'>introduction application</a>!</p></div>\n";
+        echo "<p>Continue to <a href='../../../xmldemo/'> XML API introduction.</a>!</p></div>\n";
     }
             
 
