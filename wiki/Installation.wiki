@@ -27,8 +27,9 @@
   * make a new directory in your server document root (for example *ida_test*)
   * symlink idaframerwork-read-only/idacore/server under ida_test.
     `ln -s /YOUR_HOME_DIR/idaframework-read-only/idacore/server /YOUR_DOCUMENT_ROOT/ida_test/`
-  * symlink /idaframerwork-read-only/idacore/css under ida_test.
-  * copy following files to idadev_test/:
+  * symlink idaframerwork-read-only/idacore/css under ida_test.
+  * symlink idaframerwork-read-only/xmldemo under ida_test.
+  * copy following files to ida_test/:
     * config.php
     * classes.rdfs
     * properties.rdfs
