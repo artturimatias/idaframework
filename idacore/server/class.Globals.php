@@ -24,7 +24,7 @@ if(file_exists($root.$path.'/properties.rdfs')) {
 }
 
 if(file_exists($root.$path.'/templates.xml')) {
-    $templates_xml = $root.$path.'templates.xml';
+    $templates_xml = $root.$path.'/templates.xml';
 } else {
     $templates_xml = '../templates.xml';
 }
