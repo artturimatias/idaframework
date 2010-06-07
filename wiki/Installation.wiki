@@ -12,6 +12,7 @@
   * pear package MDB2 + database spesific driver
   * PostgreSQL (or Mysql)
 
+
 == Setting PHP for UTF-8 ==
 
 Following settings should be in use in php.ini:
@@ -28,11 +29,13 @@ Following settings should be in use in php.ini:
 
 `default_charset = "UTF-8"`
 
+
 == Setting database ==
 
   * you must create a database for IDA:
     ** mysql: CREATE DATABASE idadev CHARACTER SET utf8 COLLATE utf8_swedish_ci;
     ** postgresql: createdb _your_databasename_
+
 
 == Installation from SVN ==
 
