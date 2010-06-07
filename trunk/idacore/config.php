@@ -16,10 +16,10 @@ date_default_timezone_set('Europe/Helsinki');
 
 
     // application data path (images, cache etc.)
-define('_APP_DATA_PATH', '/IDA3/data/');
+define('_APP_DATA_PATH', '/data/');
 
     // import directory for files NOTE: absolute path 
-define('_IMPORT_DIRECTORY', '/home/arihayri/IDA3/data/import/');
+define('_IMPORT_DIRECTORY', '/home/USERNAME/import/');
 
 
 	// prefix used in database
