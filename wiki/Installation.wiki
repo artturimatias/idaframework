@@ -25,12 +25,12 @@
 
 
   * make a new directory in your server document root (for example *ida_test*)
-  * symlink idaframerwork-read-only/idacore under ida_test.
+  * symlink idaframerwork-read-only/*idacore* under ida_test.
     `ln -s /YOUR_HOME_DIR/idaframework-read-only/idacore /YOUR_DOCUMENT_ROOT/ida_test/`
 
-  * symlink idaframerwork-read-only/xmldemo under ida_test.
-  * copy following files to ida_test/: 
-    * config.php
+  * symlink idaframerwork-read-only/*xmldemo* under ida_test.
+  * *copy* configuration file from idaframework-read-only/idacore/ to ida_test/: 
+    `cp idaframework-read-only/idacore/config.php /YOUR_DOCUMENT_ROOT/ida_test/`
 
 
 == Settings in config.php==
@@ -64,4 +64,4 @@ A: Make sure that you have:
   * installed MDB2#driver_for_your_db (like MDB2_Driver_pgsql) 
 
 NOTE: There is also a command line test script in /idacore/server/. You can use it by saying:
-php cli_test.php
+php cli_test.
