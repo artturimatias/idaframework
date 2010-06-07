@@ -17,10 +17,15 @@
 Following settings should be in use in php.ini:
 
 `mbstring.internal_encoding = UTF-8`
+
 `mbstring.http_input = auto`
+
 `mbstring.http_output = UTF-8`
+
 `mbstring.encoding_translation = On`
+
 `mbstring.detect_order = auto`
+
 `default_charset = "UTF-8"`
 
 == Setting database ==
