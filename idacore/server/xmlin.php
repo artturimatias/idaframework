@@ -117,58 +117,6 @@ try {
 
 
 //*********************
-// ADDTEMPLATE_PROPERTY
-//*********************
-
-        case "addtemplate_property":
-            if(IdaSession::checkSession()) {
-                $result = array();
-                foreach($root->childNodes as $child) {
-                    if($child->nodeType != 3) 
-                        $result[$child->getAttribute("title")] =  TemplateManager::loadTemplate($child);
-                }
-
-                foreach($result as $res=>$val) {
-                    $resXML = $resXML."<".$res.">";
-                    foreach($val as $r) {
-                        if($r["not_loaded"])
-                            $load = " added='no'";
-
-                        $resXML = $resXML."<property link='".$r["property"].$r["property_dir"].".".$r["property_title"]."' ".$load." target='".$r["targetClass"]."' />";
-                    }
-                    $resXML = $resXML."</".$res.">";
-                }
-
-                IdaXMLIO::sendAsXML("<response>$resXML</response>", SKIP_DEBUG);
-                
-            } else {
-                $msg = "<error>You are not logged in!</error>";
-                IdaXMLIO::sendXML($msg);
-            }            
-            
-        
-            break;
-
-//*********************
-// REMOVETEMPLATE
-//*********************
-
-        case "removetemplate_property":
-            if(IdaSession::checkSession()) {
-                    
-                TemplateManager::removeTemplate($root->getAttribute("tid"));
-                IdaXMLIO::sendAsXML("<result>template removed!</result>", SKIP_DEBUG);
-                
-            } else {
-                $msg = "<error>You are not logged in!</error>";
-                IdaXMLIO::sendXML($msg);
-            }            
-            
-        
-            break;
-
-
-//*********************
 // GETTEMPLATE
 //*********************
         // get template
@@ -190,22 +138,6 @@ try {
 
             Debug::MemoryUsage();
             IdaXMLIO::sendAsXML($dom->saveXML());
-            break;
-
-
-//*********************
-// EXPORT TEMPLATE
-//*********************
-        // export types
-        case "exporttemplate":
-        
-            $dom = new DomDocument('1.0', 'UTF-8');
-            $rootNode = $dom->createElement('add');
-            $dom->appendChild($rootNode);
-            
-            $types = TemplateManager::exportTypes($rootNode);
-            IdaXMLIO::sendAsXML($dom->saveXML());
-
             break;
 
 //*********************
@@ -298,32 +230,17 @@ try {
                                             .'"></response>';
                         } else {
 
-                            // make sure that this is unique record
-                            //$similar = $target->searchByXML($class);
-
-                           // if(count($similar)) {
-/*
-                                Debug::printMsg("Record is not unique!");
-                                $result .= '<response status="error" class="'.$target->className.'"><reason>Record '
-                                            .'is not unique! ('.implode(',',$similar)
-                                            .') Nothing saved!</reason></response>';
-
-*/
-
-                           // } else {
-
-                                Debug::printMsg("Record is unique!");
-                                // this is unique -> make a new record
-                                if($target->save())
-                                $result .=   '<response status="ok" id="'.$target->id
+                            Debug::printMsg("Record is unique!");
+                            // this is unique -> make a new record
+                            if($target->save())
+                            $result .=   '<response status="ok" id="'.$target->id
                                             .'" class="'.$target->className
                                             .'"></response>';
-                                else
+                            else
                                 $result .= '<response status="error" class="'.$target->className.'"><reason>Record '
-                                            .'is empty!</reason></response>';
+                                    .'is empty!</reason></response>';
 
 
-                           // }
                         }
 
 
@@ -1000,43 +917,6 @@ $sql = "select rec.id,filename from ida__sys_records AS rec, ida__sys_classes_jo
             
 
 
-
-//*********************
-// LINKINFO
-//*********************
-        // information about property for ontology editor
-        case 'linkinfo':
-        
-            $linkId = $root->getAttribute("id");
-            $linkDir = $root->getAttribute("dir");
-            
-            $dom = new DomDocument('1.0', 'UTF-8');
-            $root = $dom->createElement('root');
-            $link = $dom->createElement('link');
-            $comm = $dom->createElement('comment');
-            $dom->appendChild($root);  
-            $root->appendChild($link);
-            $link->appendChild($comm);
-            
-            
-            $select = array("id"=>$linkId);
-            $info = IdaDb::select("_sys_links", $select, "*", "", "onerow");
-            $comm->nodeValue = $info["comment"];
-            $link->setAttribute("title",$linkId.$linkDir.".".$info["title_".mb_strtolower($linkDir)]);
-
-            // flip domain and range if needed
-            if($linkDir == "B") {
-                $link->setAttribute("domain",$G->classNames[$info["range"]]["title"]);
-                $link->setAttribute("range",$G->classNames[$info["domain"]]["title"]);
-            } else {
-                $link->setAttribute("domain",$G->classNames[$info["domain"]]["title"]);
-                $link->setAttribute("range",$G->classNames[$info["range"]]["title"]);
-            }
-
-            IdaXMLIO::sendAsXML($dom->saveXML());      
-            break;
-            
-  
 //*********************
 // GET_IMPORT_LIST
 //*********************
@@ -1049,9 +929,6 @@ $sql = "select rec.id,filename from ida__sys_records AS rec, ida__sys_classes_jo
 
             $temps = Template::getImportDirContent();
             foreach($temps as $file) {
-
-
-
 
                     $templ = $dom->createElement('file');
                     $templ->setAttribute("filename", $file);
@@ -1201,66 +1078,6 @@ $sql = "select rec.id,filename from ida__sys_records AS rec, ida__sys_classes_jo
             break;
 
 
- 
-//*********************
-// GET_TEMPLATE_LIST
-//*********************
-        // get list of predefined templates
-        case "gettemplate_list": 
-
-            $dom = new DomDocument('1.0', 'UTF-8');
-            $root = $dom->createElement('root');
-            $dom->appendChild($root);
-
-            $init = "./init/templates/";
-            $temps = Template::getTemplates();
-            foreach($temps as $file) {
-
-                // load xml so we can be sure it is a valid xml file
-                $doc = new DOMDocument();
-                $doc->preserveWhiteSpace = false;
-
-                if($doc->load($init.$file.".xml")) {
-
-                    $xpath = new DOMXPath($doc);    
-                    $templClasses = $xpath->query("//Type");
-
-                    $templ = $dom->createElement('template');
-                    $templ->setAttribute("title", $file);
-                    $root->appendChild($templ);
-                }
-                
-            }
-            
-        IdaXMLIO::sendAsXML($dom->saveXML());
-        
-        break;
-            
-
-
-//*********************
-// GET_TEMPLATE_FILE
-//*********************
-        // get template file
-        case "gettemplate_file": 
-
-            $file = basename($root->getAttribute('title'));
-            $init = "./init/templates/";
-
-            $doc = new DomDocument('1.0', 'UTF-8');
-            $doc->preserveWhiteSpace = false;
-            if($doc->load($init.$file.".xml")) {
-                $doc->firstChild->setAttribute("id", $file);
-
-                IdaXMLIO::sendAsXML($doc->saveXML());
-
-            } else {
-
-            }
-                
-            
-        break;
-
 //*********************
 // GETPLACES2
 //*********************
@@ -1313,7 +1130,7 @@ $sql = "select rec.id,filename from ida__sys_records AS rec, ida__sys_classes_jo
 //*********************
 // GETPLACES
 //*********************
-        // get place hierarchy (2 iterations)
+        // get place hierarchy 
         case "getplaces":
 
             global $G;
@@ -1327,28 +1144,12 @@ $sql = "select rec.id,filename from ida__sys_records AS rec, ida__sys_classes_jo
             if($root->firstChild->hasAttribute("id"))
                 $id = $root->firstChild->getAttribute("id");
 
-
-            $round1 = IdaDb::select("_sys_placeorder", array(),"id");
-            $tbl = new IdaTable("appellation");
-            $tbl->loadData($round1);
-
             $dom = new DomDocument('1.0', 'UTF-8');
             $classRoot = $dom->createElement('root');
             $dom->appendChild($classRoot);
 
-           // $tree = IdaDB::getInstanceTree("_sys_placeorder", $id);
-            $level = IdaDB::getOneLevelFromTree("_sys_placeorder", $id);
-            foreach($level as $lnode) {
-                $classRoot->appendChild($dom->createElement("rs"));
-                 $classRoot->lastChild->setAttribute("id", $lnode["id"]);
-                 $classRoot->lastChild->setAttribute("is_identified_by", $lnode["name"]);
-                 if($lnode["children"] > 0) {
-                    $classRoot->lastChild->setAttribute("children", "yes");
-
-                 }
-                 //$classRoot->lastChild->setAttribute("children", $lnode["children"]);
-            }
-            //XML::makeXMLTree($tree, $tbl->rows, $classRoot, "Place");
+            $tree = IdaDB::getInstanceTree("_sys_placeorder", $id);
+            XML::makeXMLTree($tree, $classRoot, "Place");
             IdaXMLIO::sendAsXML($dom->saveXML());
             break;
 

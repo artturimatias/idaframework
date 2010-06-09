@@ -9,11 +9,13 @@
 <link rel="stylesheet" type="text/css" href="serverdemo.css" />
 
 <style type="text/css">
-	#add h2 { cursor: pointer; }
+	#add h2 { cursor: pointer; -moz-border-radius: 0; padding-left:2em }
 	#add h2:hover { color: yellow; }
+    ul {padding-left:0px; margin-left:0px}
 </style>
 
 
+<link rel="stylesheet" type="text/css" href="../idacore/css/custom-theme/jquery-ui-1.7.2.custom.css" />
  <!-- IdaBase.js is allways needed -->
 <script type="text/javascript" src="../idacore/client/IdaBase.js"></script>
 <script type="text/javascript" src="../idacore/client/jquery-1.3.2.min.js"></script>
@@ -129,14 +131,6 @@
                 <ul>
                     <li onclick="classInfo(); ">Get class info</li>
                     <p>Information of a class</p>
-                    <li onclick="linkInfo(); ">Get link info</li>
-                    <p>Information of a link (property)</p>
-                    <li onclick="addClass(); ">Insert class</li>
-                    <p>Insert new user class</p>
-                     <li onclick="deleteClass(); ">delete class</li>
-                    <p>Delete user class by id</p>
-                     <li onclick="typeList(); ">List types</li>
-                    <p>List types used </p>
 
                 </ul>
             </div>
@@ -149,15 +143,6 @@
                     <li onclick="template(); ">Get template (Person)</li>
                 </ul>
 
-                <h3>&lt;addtemplate_property&gt;</h3>
-                <ul>
-                    <li onclick="addTemplateProperty(); ">Add property to a class.</li>
-                </ul>
-
-                <h3>&lt;removetemplate_property&gt;</h3>
-                <ul>
-                    <li onclick="removeTemplateProperty(); ">Remove property.</li>
-                </ul>
             </div>
 
 
@@ -167,6 +152,8 @@
                 <ul>
                     <li onclick="uploads(); ">Get unlinked files</li>
                     <p>Get uploade files that are not associated with any record.</p>
+                    <li onclick="represents(); ">Images</li>
+                    <p>Get images that represents a building.</p>
                 </ul>
             </div>
 
@@ -180,8 +167,6 @@
     </div>
 
     <div id="browser">
-        <p>NOTE1: You must log in if you want insert or edit stuff! </p>
-        <p>NOTE2: It seems that only Firefox and Epiphany displays raw xml as plain xml.</p>
         <h2 class="base">XML-Request</h2>
         <form method="post" action="../idacore/server/xmlin.php">
         	<textarea name="xml" style="height:20em;width:100%" id="xmlarea"></textarea>
@@ -190,6 +175,9 @@
         <p><input type="submit" value="Send and display XML below" onclick="send();"/></p>
         <h2>XML-Result</h2>
         <div id="resa"></div>
+        <p>NOTE1: You must log in if you want insert or edit stuff! </p>
+        <p>NOTE2: It seems that only Firefox and Epiphany displays raw xml as plain xml.</p>
+
     </div>
 
 
@@ -215,14 +203,9 @@
         xmlQuery = xml;
 
 
-/*
-var response = $($.ajax( {url: '../idacore/server/xmlin.php', async:false, dataType:"xml"} ).responseText);
-alert($(response).html());
-*/
          $.post("../idacore/server/xmlin.php", { xml: xmlQuery , dataType:"xml"},
              function(data){
 
-//alert($(data.firstChild).data());
 
                 var div = $("<div style='margin-left:1em'>");
                 xmlparse(div, data.firstChild);
@@ -422,18 +405,18 @@ alert($(response).html());
         var xml = "<\?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
         xml = xml + "<add>\n"; 
         xml = xml + "<Person>\n";
-        xml = xml + " <P131F.is_identified_by>\n";
+        xml = xml + " <is_identified_by>\n";
         xml = xml + "  <name>Richard Stallman</name>\n";
-        xml = xml + " </P131F.is_identified_by>\n";
-        xml = xml + " <P98B.was_born> \n";
+        xml = xml + " </is_identified_by>\n";
+        xml = xml + " <was_born> \n";
         xml = xml + "  <Birth>\n";
-        xml = xml + "   <P4F.has_time-span>\n";
+        xml = xml + "   <has_time-span>\n";
         xml = xml + "    <start_day>16</start_day>\n";
         xml = xml + "    <start_month>3</start_month>\n";
         xml = xml + "    <start_year>1953</start_year>\n";
-        xml = xml + "   </P4F.has_time-span>\n";
+        xml = xml + "   </has_time-span>\n";
         xml = xml + "  </Birth>\n";
-        xml = xml + " </P98B.was_born>\n";
+        xml = xml + " </was_born>\n";
         xml = xml + "</Person>\n";
         xml = xml + "</add>";
 
@@ -523,18 +506,21 @@ alert($(response).html());
 
    }
 
-   function addClass () {
+   function represents () {
 
         var div = document.getElementById("xmlarea");
         var xml = "\<\?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
-        xml = xml + "<addclass>\n";
-        xml = xml + "  <Class title=\"University\">\n";
-        xml = xml + "   <subClassOf title=\"Legal_Body\" />\n";
-        xml = xml + "   <comment>\n";
-        xml = xml + "     This is where academics live.\n";
-        xml = xml + "   </comment>\n";
-        xml = xml + " </Class>\n";
-        xml = xml + "</addclass>\n";
+        xml = xml + "<search>\n";
+        xml = xml + "  <Digital_Image>\n";
+        xml = xml + "   <represents>\n";
+        xml = xml + "     <Building />\n";
+        xml = xml + "   </represents>\n";
+        xml = xml + " </Digital_Image>\n";
+        xml = xml + " <result is_identified_by=\"filename\">\n";
+        xml = xml + "   <represents is_identified_by=\"name\" />\n";
+        xml = xml + " </result>\n";
+
+        xml = xml + "</search>\n";
         div.value = xml;
 
    }
