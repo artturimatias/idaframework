@@ -357,9 +357,9 @@ class XML {
     }
 
     // thanks to http://www.sitepoint.com/print/hierarchical-data-database/
-    static function makeXMLTree($tree,  $titles, $xmlNode, $nodeName="class") {
+    static function makeXMLTree($tree,  $xmlNode, $nodeName="class") {
 
-    global $G;
+    global $G_classNames;
     $right = array();
     $curr = $xmlNode;
     foreach($tree as $row) {
@@ -373,12 +373,9 @@ class XML {
        }
        
        // display indented node title
-       $cl = $xmlNode->ownerDocument->createElement($nodeName);
+       $cl = $xmlNode->ownerDocument->createElement($G_classNames[$row["class"]]);
 
-        // class names and appellations are in diffrent forms
-       // $title =  $titles[$row["id"]][0]["name"];
-
-      // $cl->setAttribute("title", $title);
+       $cl->setAttribute("title", $row["name"]);
        $cl->setAttribute("id", $row["id"]);
        $curr->appendChild($cl);
        $curr = $cl;

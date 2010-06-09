@@ -85,16 +85,16 @@ class Template {
         $arr = array();
         $search = array(".", "..");
 
-        $d = dir(_IMPORT_DIRECTORY);
-        while (false !== ($entry = $d->read())) {
-            if (!in_array($entry, $search)) {
-               // $entry = str_replace(".xml", "", $entry);
-                $arr[] = $entry;
+        if(is_dir(_IMPORT_DIRECTORY)) {
+            $d = dir(_IMPORT_DIRECTORY);
+            $entry = $d->read();
+            while (false !== ($entry = $d->read())) {
+                if (!in_array($entry, $search)) {
+                    $arr[] = $entry;
+                }
             }
+            $d->close();
         }
-        $d->close();
-
-        //sort($arr);
         return $arr;
 
     }
@@ -143,6 +143,7 @@ Debug::printMsg("<h2>parent=".$parent->hasType."</h2>");
     public static function checkLinkRange(&$instance, $link, $target) {
 
         global $classes_rdfs;
+        global $properties_rdfs;
 
         // if target is table, then check shorcut(s) -> all descadents are ok
         if(get_class($target) == "IdaTable") {
@@ -163,7 +164,7 @@ Debug::printMsg("<h2>parent=".$parent->hasType."</h2>");
             $instance->path = XML::pathToClass($instance->classNameFull, array($instance->classNameFull));
 
         $crmDom = new DomDocument('1.0', 'UTF-8');
-        if(!$crmDom->Load($classes_rdfs, LIBXML_NOBLANKS))
+        if(!$crmDom->Load($properties_rdfs, LIBXML_NOBLANKS))
             die("file not found");
 
         $xpath = new DOMXPath($crmDom);

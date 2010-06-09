@@ -16,6 +16,7 @@ $arr_path = explode("/", $_SERVER['PHP_SELF']);
 $phpfile = $arr_path[count($arr_path)-1];
 unset($arr_path[count($arr_path)-1]);
 unset($arr_path[count($arr_path)-1]);
+unset($arr_path[count($arr_path)-1]);
 // if this is called from setup then go back one more directory
 if($phpfile != "xmlin.php")
     unset($arr_path[count($arr_path)-1]);
@@ -956,7 +957,7 @@ node.id HAVING depth = 1 ORDER BY name;
             $select = " o.id ";
             $mode = "onecol";
         } else {
-            $select = "  cj.property, cj.has_type,o.id, lft, rgt, name ";
+            $select = "  cj.property AS class, cj.has_type,o.id, lft, rgt, name ";
             $mode = "default";
         }
 
@@ -972,7 +973,6 @@ node.id HAVING depth = 1 ORDER BY name;
                 WHERE 
                     lft BETWEEN ? AND ? 
                 ORDER BY lft ASC";
-
 
         // retrieve all descendants of the $root node
         $sql = "SELECT 
@@ -997,51 +997,9 @@ node.id HAVING depth = 1 ORDER BY name;
                     lft BETWEEN ? AND ? 
                 ORDER BY lft ASC ";
 
-// select one level ordered by name from preordered traversal table
-        $sql = "SELECT 
-                node.id, (COUNT(parent.id) - (sub_tree.depth + 1)) AS depth, name 
-FROM 
-ida__sys_placeorder AS node, 
-ida__sys_placeorder AS parent,
-ida__sys_placeorder AS sub_parent,
-ida_appellation AS appel,
-ida_appellation_join AS appel_j, 
-(SELECT node.id, (COUNT(parent.id) - 1) AS depth
- FROM 
-ida__sys_placeorder AS node,
-ida__sys_placeorder AS parent
-WHERE 
-node.lft 
-BETWEEN 
-parent.lft 
-AND 
-parent.rgt 
-AND 
-node.id = ? 
-
-GROUP BY 
-node.id ORDER BY node.lft) AS sub_tree 
-WHERE 
-node.lft 
-BETWEEN parent.lft 
-AND parent.rgt 
-AND node.lft 
-BETWEEN sub_parent.lft 
-AND sub_parent.rgt 
-AND sub_parent.id = sub_tree.id 
-AND 
-appel_j.subject = node.id
-AND
-appel.id = appel_j.property
-GROUP BY 
-node.id HAVING depth = 1 ORDER BY name;
-";
-        $tree = IdaDb::prepareExecute($sql, array(0), $mode);
-       // $tree = IdaDb::prepareExecute($sql, array($res[0]["lft"], $res[0]["rgt"]), $mode);
+        
+        $tree = IdaDb::prepareExecute($sql, array($res[0]["lft"], $res[0]["rgt"]), $mode);
         //Debug::printArray($tree);
-        echo "<pre>";
-        print_r($tree);
-        die();
         return $tree;
 
     }
